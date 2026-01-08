@@ -3,25 +3,30 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 
-// --- TUS ARCHIVOS (Nombres corregidos según lo que subiste) ---
-import PublicWeb from './App.jsx'   // Tu Front
-import CRM from './crm.jsx'         // Tu CRM
-import Admin from './admin.jsx'     // Tu Inventario (se llama admin.jsx, no InventoryManager)
+// --- TUS ARCHIVOS ---
+import PublicWeb from './App.jsx'   // Front
+import CRM from './crm.jsx'         // CRM
+import Admin from './admin.jsx'     // Inventario
+import Login from './login.jsx'     // NUEVO: Portal de Acceso
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* Web Pública */}
+        {/* RUTA 1: Web Pública */}
         <Route path="/" element={<PublicWeb />} />
 
-        {/* CRM */}
+        {/* RUTA 2: Login / Portal */}
+        {/* Entra aquí para elegir a dónde ir */}
+        <Route path="/login" element={<Login />} />
+
+        {/* RUTA 3: CRM (Protegida) */}
         <Route path="/crm" element={<CRM />} />
 
-        {/* Inventario / Admin */}
+        {/* RUTA 4: Inventario (Protegida) */}
         <Route path="/admin" element={<Admin />} />
 
-        {/* Redirección por defecto */}
+        {/* Cualquier otra cosa va a la web */}
         <Route path="*" element={<PublicWeb />} />
       </Routes>
     </BrowserRouter>
