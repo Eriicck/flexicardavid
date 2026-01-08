@@ -44,30 +44,31 @@ export default function Login() {
          <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
       </div>
 
-      {/* TARJETA PRINCIPAL (Con efecto cristal/semitransparente AJUSTADO) */}
-      <div className="relative z-10 w-full max-w-3xl bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row shadow-black/50 border border-white/20">
+      {/* TARJETA PRINCIPAL (Efecto Cristal Oscuro / Glassmorphism) */}
+      {/* Cambiado bg-white/80 a bg-black/30 para eliminar el "blanco" y backdrop-blur-xl para el difuminado */}
+      <div className="relative z-10 w-full max-w-3xl bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row shadow-black/50 border border-white/10">
         
-        {/* LADO IZQUIERDO (Imagen y Branding - Oculto en móvil muy pequeño, visible en tablet/pc) */}
-        <div className="hidden md:flex md:w-5/12 bg-slate-900/85 relative flex-col justify-between p-8 text-white">
-           <div className="absolute inset-0 z-0 opacity-50">
+        {/* LADO IZQUIERDO (Imagen y Branding) */}
+        <div className="hidden md:flex md:w-5/12 bg-black/20 relative flex-col justify-between p-8 text-white border-r border-white/5">
+           <div className="absolute inset-0 z-0 opacity-40">
               <img 
                 src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1000" 
                 className="w-full h-full object-cover grayscale"
                 alt="Fondo Panel"
               />
            </div>
-           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10"></div>
+           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
            
            <div className="relative z-20">
               <div className="flex items-center gap-2 mb-2">
                  <div className="bg-orange-500 p-1.5 rounded-lg"><Car size={18} className="text-white"/></div>
                  <span className="font-black text-lg italic tracking-tighter">FLEXI<span className="text-orange-500">CAR</span></span>
               </div>
-              <p className="text-slate-300 text-[10px] font-bold uppercase tracking-widest">Portal Corporativo</p>
+              <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Portal Corporativo</p>
            </div>
 
            <div className="relative z-20 space-y-4">
-              <h2 className="text-2xl font-bold leading-tight">Gestión Integral</h2>
+              <h2 className="text-2xl font-bold leading-tight text-white">Gestión Integral</h2>
               <p className="text-slate-300 text-xs leading-relaxed opacity-90">Acceso unificado a herramientas de administración y ventas.</p>
            </div>
         </div>
@@ -75,57 +76,57 @@ export default function Login() {
         {/* LADO DERECHO (Formulario) */}
         <div className="w-full md:w-7/12 p-8 md:p-10 flex flex-col justify-center bg-transparent">
            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-slate-900 mb-1">Bienvenido</h3>
-              <p className="text-slate-600 font-medium text-sm">Ingresa tus credenciales para continuar.</p>
+              <h3 className="text-2xl font-bold text-white mb-1">Bienvenido</h3>
+              <p className="text-slate-300 font-medium text-sm">Ingresa tus credenciales para continuar.</p>
            </div>
 
            <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-3">
                   <div className="relative group">
-                      <User className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-orange-600 transition-colors" size={16}/>
+                      <User className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-orange-500 transition-colors" size={16}/>
                       <input 
                         type="email" 
                         placeholder="Correo Corporativo" 
-                        className="w-full bg-white/60 border border-slate-200/60 rounded-lg py-3 pl-10 pr-4 text-sm font-medium outline-none focus:border-orange-500 focus:bg-white transition-all placeholder:text-slate-400"
+                        className="w-full bg-black/20 border border-white/10 rounded-lg py-3 pl-10 pr-4 text-sm font-medium outline-none focus:border-orange-500 focus:bg-black/40 transition-all placeholder:text-slate-500 text-white"
                         defaultValue="david@flexicar.es"
                       />
                   </div>
                   <div className="relative group">
-                      <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-orange-600 transition-colors" size={16}/>
+                      <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-orange-500 transition-colors" size={16}/>
                       <input 
                         type="password" 
                         placeholder="Contraseña" 
-                        className="w-full bg-white/60 border border-slate-200/60 rounded-lg py-3 pl-10 pr-4 text-sm font-medium outline-none focus:border-orange-500 focus:bg-white transition-all placeholder:text-slate-400"
+                        className="w-full bg-black/20 border border-white/10 rounded-lg py-3 pl-10 pr-4 text-sm font-medium outline-none focus:border-orange-500 focus:bg-black/40 transition-all placeholder:text-slate-500 text-white"
                         defaultValue="********"
                       />
                   </div>
               </div>
 
               <div className="pt-2">
-                 <label className="block text-[10px] font-bold text-slate-500 uppercase mb-2 tracking-wider">Selecciona Perfil (Demo)</label>
+                 <label className="block text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-wider">Selecciona Perfil (Demo)</label>
                  <div className="grid grid-cols-1 gap-2">
                     
-                    <div onClick={() => setSelectedRole('comercial')} className={`flex items-center gap-3 p-2.5 rounded-lg border cursor-pointer transition-all ${selectedRole === 'comercial' ? 'border-orange-500 bg-orange-50/80 ring-1 ring-orange-500' : 'border-slate-200/60 bg-white/40 hover:bg-white/60 hover:border-slate-300'}`}>
-                        <div className={`p-1.5 rounded-md ${selectedRole === 'comercial' ? 'bg-orange-500 text-white' : 'bg-slate-200 text-slate-500'}`}><Briefcase size={16}/></div>
-                        <div className="flex-1"><p className={`text-xs font-bold ${selectedRole === 'comercial' ? 'text-orange-900' : 'text-slate-700'}`}>Comercial</p></div>
+                    <div onClick={() => setSelectedRole('comercial')} className={`flex items-center gap-3 p-2.5 rounded-lg border cursor-pointer transition-all ${selectedRole === 'comercial' ? 'border-orange-500 bg-orange-500/20 ring-1 ring-orange-500' : 'border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20'}`}>
+                        <div className={`p-1.5 rounded-md ${selectedRole === 'comercial' ? 'bg-orange-500 text-white' : 'bg-white/10 text-slate-300'}`}><Briefcase size={16}/></div>
+                        <div className="flex-1"><p className={`text-xs font-bold ${selectedRole === 'comercial' ? 'text-orange-400' : 'text-slate-200'}`}>Comercial</p></div>
                         {selectedRole === 'comercial' && <CheckCircle size={14} className="text-orange-500"/>}
                     </div>
 
-                    <div onClick={() => setSelectedRole('admin')} className={`flex items-center gap-3 p-2.5 rounded-lg border cursor-pointer transition-all ${selectedRole === 'admin' ? 'border-blue-500 bg-blue-50/80 ring-1 ring-blue-500' : 'border-slate-200/60 bg-white/40 hover:bg-white/60 hover:border-slate-300'}`}>
-                        <div className={`p-1.5 rounded-md ${selectedRole === 'admin' ? 'bg-blue-600 text-white' : 'bg-slate-200 text-slate-500'}`}><ShieldCheck size={16}/></div>
-                        <div className="flex-1"><p className={`text-xs font-bold ${selectedRole === 'admin' ? 'text-blue-900' : 'text-slate-700'}`}>Administrador</p></div>
-                        {selectedRole === 'admin' && <CheckCircle size={14} className="text-blue-600"/>}
+                    <div onClick={() => setSelectedRole('admin')} className={`flex items-center gap-3 p-2.5 rounded-lg border cursor-pointer transition-all ${selectedRole === 'admin' ? 'border-blue-500 bg-blue-500/20 ring-1 ring-blue-500' : 'border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20'}`}>
+                        <div className={`p-1.5 rounded-md ${selectedRole === 'admin' ? 'bg-blue-600 text-white' : 'bg-white/10 text-slate-300'}`}><ShieldCheck size={16}/></div>
+                        <div className="flex-1"><p className={`text-xs font-bold ${selectedRole === 'admin' ? 'text-blue-400' : 'text-slate-200'}`}>Administrador</p></div>
+                        {selectedRole === 'admin' && <CheckCircle size={14} className="text-blue-500"/>}
                     </div>
 
                  </div>
               </div>
 
-              <button type="submit" disabled={loading} className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-orange-600 transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed mt-2">
+              <button type="submit" disabled={loading} className="w-full bg-orange-500 text-white py-3 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-orange-600 transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed mt-2">
                 {loading ? 'Accediendo...' : <>Ingresar <ChevronRight size={14}/></>}
               </button>
            </form>
            
-           <div className="mt-6 text-center"><p className="text-[10px] text-slate-500 font-medium">© 2025 Flexicar System v1.0.3</p></div>
+           <div className="mt-6 text-center"><p className="text-[10px] text-slate-500 font-medium">© 2025 Flexicar System v1.0.4</p></div>
         </div>
       </div>
     </div>
