@@ -535,7 +535,7 @@ const Footer = () => (
            </div>
            <div className="flex items-start gap-3">
                <Phone className="text-orange-500 shrink-0 mt-0.5" size={16} />
-               <p className="text-xs">+34 640 52 26 54</p>
+               <p className="text-xs">+34 642 96 22</p>
            </div>
         </div>
         {/* Horarios */}
