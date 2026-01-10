@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 
 /* --- CONFIGURACIÓN --- */
-const AGENT_PHONE = "34640522654"; 
+const AGENT_PHONE = "34642029662"; 
 const AGENT_NAME = "David Castillo";
 // NOTA: Recuerda que cambiamos esto a una ruta local "/david1.png" en tu entorno si ya subiste la foto
 const AGENT_PHOTO_URL = "/david1.png"; 
